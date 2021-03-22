@@ -1,5 +1,6 @@
 syntax = "proto3";
 package pbdemo;
+// option go_package = "github.com/glenntrewitt/reference/pbdemo";
 
 message DemoMessage {
    int32 value = 1;

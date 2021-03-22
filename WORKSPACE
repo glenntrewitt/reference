@@ -25,10 +25,7 @@ http_archive(
 load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
 gazelle_dependencies()
 
-# Protocol Buffers - proto_library
-# TODO Verify that we have Go proto API v2.
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-
+# Bazel rules for Protocol Buffers.
 http_archive(
     name = "rules_proto",
     sha256 = "602e7161d9195e50246177e7c55b2f39950a9cf7366f74ed5f22fd45750cd208",
@@ -42,7 +39,7 @@ load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_
 rules_proto_dependencies()
 rules_proto_toolchains()
 
-# Prococol Buffers - Go
+# Prococol Buffers - The language and compiler.
 http_archive(
     name = "com_google_protobuf",
     sha256 = "9748c0d90e54ea09e5e75fb7fac16edce15d2028d4356f32211cfa3c0e956564",
@@ -52,7 +49,14 @@ http_archive(
 load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
 protobuf_deps()
 
-# gRPC
+# Golang Protobuf API v2.  See https://blog.golang.org/protobuf-apiv2
+go_repository(
+    name = "org_golang_google_protobuf",
+    importpath = "google.golang.org/protobuf",
+    version = "v1.26.0",
+)
+
+# Golang gRPC API.
 go_repository(
     name = "org_golang_google_grpc",
     build_file_proto_mode = "disable",
