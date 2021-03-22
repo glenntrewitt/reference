@@ -1,0 +1,9 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "demo",
+    srcs = ["demo.go"],
+    importpath = "github.com/glenntrewitt/reference/demo",
+    visibility = ["//visibility:public"],
+    deps = ["//pbdemo"],
+)

@@ -1,0 +1,14 @@
+syntax = "proto3";
+package rpcdemo;
+import "github.com/glenntrewitt/reference/pbdemo/pbdemo.proto";
+
+message RpcInput {
+    pbdemo.DemoMessage value = 1;
+ }
+ message RpcResult {
+    int32 value = 1;
+ }
+  
+// service RpcService {
+//     rpc DoRpc(RpcInput) returns (RpcResult);
+// }
